@@ -1,103 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STEMBlog</n>  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #1a1a1a;
-      --accent: #0066cc;
-      --muted: #6e6e6e;
-    }
-    [data-theme="dark"] {
-      --bg: #1a1a1a;
-      --fg: #f0f0f0;
-      --accent: #3399ff;
-      --muted: #9a9a9a;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
-    header { background: var(--bg); border-bottom: 1px solid var(--muted); position: sticky; top: 0; z-index: 100; }
-    .nav-container { max-width: 900px; margin: auto; display: flex; align-items: center; justify-content: space-between; padding: 1rem; }
-    .brand { font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-    nav ul { list-style: none; display: flex; gap: 1rem; }
-    nav a { text-decoration: none; color: var(--fg); font-weight: 600; }
-    .toggle-btn { background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--fg); }
-    main { max-width: 900px; margin: auto; padding: 2rem 1rem; }
-    .hero { text-align: center; margin-bottom: 2rem; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .hero p { color: var(--muted); }
-    .posts { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-    .post { border: 1px solid var(--muted); border-radius: 8px; padding: 1.5rem; }
-    .post h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
-    .post time { font-size: 0.9rem; color: var(--muted); }
-    .post p { margin: 1rem 0; }
-    .read-more { color: var(--accent); text-decoration: none; font-weight: 600; }
-    footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.9rem; }
-    @media (min-width: 600px) {
-      .posts { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
-</head>
-<body data-theme="light">
-  <header>
-    <div class="nav-container">
-      <a href="/" class="brand">STEMBlog</a>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><button class="toggle-btn" id="theme-toggle">🌙</button></li>
-        </ul>
-      </nav>
+---
+layout: default
+---
+<section class="featured-post">
+    <div class="container">
+        <h2>Latest Posts</h2>
+        <div class="post-grid">
+            {% for post in site.posts %}
+            <div class="post-card">
+                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+                <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <h1>Welcome to STEMBlog</h1>
-      <p>Your source for insights on robotics, AI, and education.</p>
-    </section>
-
-    <section class="posts">
-      <!-- Repeat this block for each article -->
-      <article class="post">
-        <h2>Article Title Here</h2>
-        <time datetime="2025-05-20">May 20, 2025</time>
-        <p>Short excerpt of your article goes here. Write a brief summary to entice readers.</p>
-        <a href="articles/article1.html" class="read-more">Read more →</a>
-      </article>
-      <!-- / post -->
-
-      <!-- Add more <article> blocks as needed -->
-
-    </section>
-  </main>
-
-  <footer>
-    &copy; <span id="year"></span> STEMBlog. Made with ❤
-  </footer>
-
-  <script>
-    // Dark mode toggle
-    const btn = document.getElementById('theme-toggle');
-    const root = document.body;
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    root.setAttribute('data-theme', currentTheme);
-    btn.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
-
-    btn.addEventListener('click', () => {
-      const newTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-    });
-
-    // Year auto-update
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+</section>
