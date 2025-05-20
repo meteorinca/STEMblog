@@ -1,0 +1,6 @@
+title: STEM Blog
+description: A professional blog about science, technology, engineering, and math
+theme: minima
+plugins:
+  - jekyll-feed
+markdown: kramdown
