@@ -1,7 +1,7 @@
 Warning: AI slop
 
 
-# [Your Name]'s Digital Garden 🌱
+# Incanto's Digital Garden 🌱
 
 Welcome to my public thinking space! This repository hosts my evolving thoughts, research notes, and future plans – a digital garden where ideas grow over time.
 
