@@ -1,4 +1,3 @@
-Warning: AI slop
 
 
 # Incanto's Digital Garden 🌱
