@@ -1,44 +1,28 @@
+# STEM Blog
 
+This repository contains the source for my GitHub Pages powered blog. Posts are written in Markdown and generated with [Jekyll](https://jekyllrb.com/).
 
-# Incanto's Digital Garden 🌱
+## Running locally
 
-Welcome to my public thinking space! This repository hosts my evolving thoughts, research notes, and future plans – a digital garden where ideas grow over time.
+1. Clone the repository
+   ```bash
+   git clone https://github.com/meteorinca/STEMblog.git
+   cd STEMblog
+   ```
+2. Install dependencies and start the Jekyll server
+   ```bash
+   bundle install
+   bundle exec jekyll serve
+   ```
 
-## 🌟 What's Here
-- **Thought Seeds**  
-  Raw, unpolished ideas in `/thoughts`
-- **Research Compass**  
-  Curated resources & findings in `/research`
-- **Future Blueprints**  
-  Project plans & goals in `/plans`
-- **Blooming Ideas**  
-  Fully-formed articles in `/essays`
+The site will be available at `http://localhost:4000/STEMblog/`.
 
-## 🧭 How to Navigate
-Content follows evergreen principles:
-- 🔎 **Tags** for cross-topic connections
-- 🌱 **Seedlings** (early-stage ideas)
-- 🌿 **Budding** (developing concepts)
-- 🌳 **Evergreen** (mature writings)
+## Adding posts
 
-## 🛠️ Built With
-[Customize based on your tech stack]
-- Static site generator: [Jekyll/Hugo/11ty/Astro]
-- Hosting: GitHub Pages
-- CSS: [Tailwind/Simple CSS/Custom]
-- [Add other key tools]
+Create new Markdown files in the `_posts` directory using the `YYYY-MM-DD-title.md` naming convention. Images such as scans of sticky notes can be placed in `assets/images/` and referenced with the `relative_url` filter:
 
-## 🌌 Why Public?
-I believe knowledge grows through:
-- Open thinking 🧠
-- Collaborative refinement 🤝
-- Transparent evolution 🔄  
-Feedback and connections welcome!
+```markdown
+![Alt text]({{ '/assets/images/my-note.png' | relative_url }})
+```
 
-## 🚀 Local Setup
-To run locally:
-```bash
-git clone https://github.com/[your-username]/[repo-name].git
-cd [repo-name]
-[install command] # e.g. bundle install
-[run command]    # e.g. jekyll serve
+Happy hacking!
